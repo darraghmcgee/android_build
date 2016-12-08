@@ -666,26 +666,26 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
       oem_props, oem_dict, OPTIONS.info_dict))
 
   script.Print("")
-  script.Print("       || THANK YOU FOR FLASHING ||        ")
+  script.Print("                      || THANK YOU FOR FLASHING ||               ")
   script.Print("")
-  script.Print("DDDDDDDDDDDDD        UUUUUUUU     UUUUUUUU");
-  script.Print("D::::::::::::DDD     U::::::U     U::::::U");
-  script.Print("D:::::::::::::::DD   U::::::U     U::::::U");
-  script.Print("DDD:::::DDDDD:::::D  UU:::::U     U:::::UU");
-  script.Print("  D:::::D    D:::::D  U:::::U     U:::::U ");
-  script.Print("  D:::::D     D:::::D U:::::U     U:::::U ");
-  script.Print("  D:::::D     D:::::D U:::::U     U:::::U ");
-  script.Print("  D:::::D     D:::::D U:::::U     U:::::U ");
-  script.Print("  D:::::D     D:::::D U:::::U     U:::::U ");
-  script.Print("  D:::::D     D:::::D U:::::U     U:::::U ");
-  script.Print("  D:::::D     D:::::D U:::::U     U:::::U ");
-  script.Print("  D:::::D    D:::::D  U::::::U   U::::::U ");
-  script.Print("DDD:::::DDDDD:::::D   U:::::::UUU:::::::U ");
-  script.Print("D:::::::::::::::DD     UU:::::::::::::UU  ");
-  script.Print("D::::::::::::DDD         UU:::::::::UU    ");
-  script.Print("DDDDDDDDDDDDD              UUUUUUUUU      ");
+  script.Print("            LLLLLLLLLLL             DDDDDDDDDDDDD                ")
+  script.Print("            L:::::::::L             D::::::::::::DDD             ")
+  script.Print("            L:::::::::L             D:::::::::::::::DD           ")
+  script.Print("            LL:::::::LL             DDD:::::DDDDD:::::D          ")
+  script.Print("              L:::::L                 D:::::D    D:::::D         ")
+  script.Print("              L:::::L                 D:::::D     D:::::D        ")
+  script.Print("              L:::::L                 D:::::D     D:::::D        ")
+  script.Print("              L:::::L                 D:::::D     D:::::D        ")
+  script.Print("              L:::::L                 D:::::D     D:::::D        ")
+  script.Print("              L:::::L                 D:::::D     D:::::D        ")
+  script.Print("              L:::::L                 D:::::D     D:::::D        ")
+  script.Print("              L:::::L         LLLLLL  D:::::D    D:::::D         ")
+  script.Print("            LL:::::::LLLLLLLLL:::::LDDD:::::DDDDD:::::D          ")
+  script.Print("            L::::::::::::::::::::::LD:::::::::::::::DD           ")
+  script.Print("            L::::::::::::::::::::::LD::::::::::::DDD             ")
+  script.Print("            LLLLLLLLLLLLLLLLLLLLLLLLDDDDDDDDDDDDD                ")
   script.Print("")
-  script.Print("            ||| ANDROID 7.0 |||           ")
+  script.Print("                      ||| ANDROID 7.1.1 |||                      ")
   script.Print("")
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")

@@ -538,17 +538,22 @@ function print_lunch_menu()
     echo ""
     tput setaf 1;
     tput bold;
-    echo "·▄▄▄▄  ▪  ▄▄▄  ▄▄▄▄▄ ▄· ▄▌    ▄• ▄▌ ▐ ▄ ▪   ▄▄·       ▄▄▄   ▐ ▄ .▄▄ · "
-    echo "██▪ ██ ██ ▀▄ █·•██  ▐█▪██▌    █▪██▌•█▌▐███ ▐█ ▌▪▪     ▀▄ █·•█▌▐█▐█ ▀. "
-    echo "▐█· ▐█▌▐█·▐▀▀▄  ▐█.▪▐█▌▐█▪    █▌▐█▌▐█▐▐▌▐█·██ ▄▄ ▄█▀▄ ▐▀▀▄ ▐█▐▐▌▄▀▀▀█▄"
-    echo "██. ██ ▐█▌▐█•█▌ ▐█▌· ▐█▀·.    ▐█▄█▌██▐█▌▐█▌▐███▌▐█▌.▐▌▐█•█▌██▐█▌▐█▄▪▐█"
-    echo "▀▀▀▀▀• ▀▀▀.▀  ▀ ▀▀▀   ▀ •      ▀▀▀ ▀▀ █▪▀▀▀·▀▀▀  ▀█▄▀▪.▀  ▀▀▀ █▪ ▀▀▀▀ "
+    echo "          ██▓     ██▓  █████   █    ██  ██▓▓█████▄    ▓█████▄ ▓█████  ▄▄▄      ▄▄▄█████▓ ██░ ██     ▒█████    ██████ "
+    echo "         ▓██▒    ▓██▒▒██▓  ██▒ ██  ▓██▒▓██▒▒██▀ ██▌   ▒██▀ ██▌▓█   ▀ ▒████▄    ▓  ██▒ ▓▒▓██░ ██▒   ▒██▒  ██▒▒██    ▒ "
+    echo "         ▒██░    ▒██▒▒██▒  ██░▓██  ▒██░▒██▒░██   █▌   ░██   █▌▒███   ▒██  ▀█▄  ▒ ▓██░ ▒░▒██▀▀██░   ▒██░  ██▒░ ▓██▄   "
+    echo "         ▒██░    ░██░░██  █▀ ░▓▓█  ░██░░██░░▓█▄   ▌   ░▓█▄   ▌▒▓█  ▄ ░██▄▄▄▄██ ░ ▓██▓ ░ ░▓█ ░██    ▒██   ██░  ▒   ██▒"
+    echo "         ░██████▒░██░░▒███▒█▄ ▒▒█████▓ ░██░░▒████▓    ░▒████▓ ░▒████▒ ▓█   ▓██▒  ▒██▒ ░ ░▓█▒░██▓   ░ ████▓▒░▒██████▒▒"
+    echo "         ░ ▒░▓  ░░▓  ░░ ▒▒░ ▒ ░▒▓▒ ▒ ▒ ░▓   ▒▒▓  ▒     ▒▒▓  ▒ ░░ ▒░ ░ ▒▒   ▓▒█░  ▒ ░░    ▒ ░░▒░▒   ░ ▒░▒░▒░ ▒ ▒▓▒ ▒ ░"
+    echo "         ░ ░ ▒  ░ ▒ ░ ░ ▒░  ░ ░░▒░ ░ ░  ▒ ░ ░ ▒  ▒     ░ ▒  ▒  ░ ░  ░  ▒   ▒▒ ░    ░     ▒ ░▒░ ░     ░ ▒ ▒░ ░ ░▒  ░ ░"
+    echo "           ░ ░    ▒ ░   ░   ░  ░░░ ░ ░  ▒ ░ ░ ░  ░     ░ ░  ░    ░     ░   ▒     ░       ░  ░░ ░   ░ ░ ░ ▒  ░  ░  ░  "
+    echo "             ░  ░ ░      ░       ░      ░     ░          ░       ░  ░      ░  ░          ░  ░  ░       ░ ░        ░  "
+    echo "                                             ░          ░                                                             
     tput sgr0;
     echo ""
-    echo "                      Welcome to the device menu                      "
+    echo "                                                    Welcome to the device menu                                       "
     echo ""
     tput bold;
-    echo "     Below are all the devices currently available to be compiled     "
+    echo "                                   Below are all the devices currently available to be compiled                      "
     tput sgr0;
     echo ""
 
@@ -578,10 +583,10 @@ function brunch()
 function breakfast()
 {
     target=$1
-    DU_DEVICES_ONLY="true"
+    LD_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/du/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/ld/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -597,8 +602,8 @@ function breakfast()
             # A buildtype was specified, assume a full device name
             lunch $target
         else
-            # This is probably just the du model name
-            lunch du_$target-userdebug
+            # This is probably just the ld model name
+            lunch ld_$target-userdebug
         fi
     fi
     return $?

@@ -121,7 +121,7 @@ def fetch_query(remote_url, query):
 
 if __name__ == '__main__':
     # Default to DU's Gerrit
-    default_gerrit = 'http://gerrit.dirtyunicorns.com'
+    default_gerrit = 'https://review.exynos5420.com'
 
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter, description=textwrap.dedent('''\
         repopick.py is a utility to simplify the process of cherry picking
