@@ -594,7 +594,7 @@ function breakfast()
     unset f
 
     if [ $# -eq 0 ]; then
-        # No arguments, so let's have the full menu
+        # No arguments, so let us have the full menu
         lunch
     else
         echo "z$target" | grep -q "-"
