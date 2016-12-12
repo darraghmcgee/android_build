@@ -139,7 +139,7 @@ def add_to_manifest_dependencies(repositories):
                 print 'Updating dependency %s' % (repo_name)
                 existing_project.set('name', repository['repository'])
             if existing_project.attrib['revision'] == repository['branch']:
-                print 'LiquidDeathOS/%s already exists' % (repo_name)
+                print 'exynos5420/%s already exists' % (repo_name)
             else:
                 print 'updating branch for %s to %s' % (repo_name, repository['branch'])
                 existing_project.set('revision', repository['branch'])
@@ -147,7 +147,7 @@ def add_to_manifest_dependencies(repositories):
 
         print 'Adding dependency: %s -> %s' % (repo_name, repo_target)
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": repo_name, "revision": "n7.1" })
+            "remote": "github", "name": repo_name, "revision": "LD_N7.1" })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -175,15 +175,15 @@ def add_to_manifest(repositories):
         existing_project = exists_in_tree_device(lm, repo_name)
         if existing_project != None:
             if existing_project.attrib['revision'] == repository['branch']:
-                print 'LiquidDeathOS/%s already exists' % (repo_name)
+                print 'exynos5420/%s already exists' % (repo_name)
             else:
-                print 'updating branch for LiquidDeathOS/%s to %s' % (repo_name, repository['branch'])
+                print 'updating branch for exynos5420/%s to %s' % (repo_name, repository['branch'])
                 existing_project.set('revision', repository['branch'])
             continue
 
-        print 'Adding dependency: LiquidDeathOS/%s -> %s' % (repo_name, repo_target)
+        print 'Adding dependency: exynos5420/%s -> %s' % (repo_name, repo_target)
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "LiquidDeathOS/%s" % repo_name, "revision": "n7.1" })
+            "remote": "github", "name": "exynos5420/%s" % repo_name, "revision": "LD_N7.1" })
 
         if 'branch' in repository:
             project.set('revision', repository['branch'])
@@ -243,10 +243,10 @@ else:
 
             repo_path = "device/%s/%s" % (manufacturer, device)
 
-            add_to_manifest([{'repository':repo_name,'target_path':repo_path,'branch':'n7.1'}])
+            add_to_manifest([{'repository':repo_name,'target_path':repo_path,'branch':'LD_N7.1'}])
 
             print "Syncing repository to retrieve project."
-            os.system('repo sync %s' % repo_path)
+            os.system('repo sync --force-sync %s' % repo_path)
             print "Repository synced!"
 
             fetch_dependencies(repo_path)
