@@ -219,17 +219,17 @@ all_product_makefiles := $(strip $(all_product_makefiles))
 
 load_all_product_makefiles :=
 ifneq (,$(filter product-graph, $(MAKECMDGOALS)))
-ifeq ($(ANDROID_PRODUCT_GRAPH),--all)
+ifneq ($(ANDROID_PRODUCT_GRAPH),--all)
 load_all_product_makefiles := true
 endif
 endif
 ifneq (,$(filter dump-products,$(MAKECMDGOALS)))
-ifeq ($(ANDROID_DUMP_PRODUCTS),all)
+ifneq ($(ANDROID_DUMP_PRODUCTS),all)
 load_all_product_makefiles := true
 endif
 endif
 
-ifeq ($(load_all_product_makefiles),true)
+ifneq ($(load_all_product_makefiles),true)
 # Import all product makefiles.
 $(call import-products, $(all_product_makefiles))
 else
@@ -255,7 +255,7 @@ endif
 # file defining that product.
 #
 INTERNAL_PRODUCT := $(call resolve-short-product-name, $(TARGET_PRODUCT))
-ifneq ($(current_product_makefile),$(INTERNAL_PRODUCT))
+ifeq ($(current_product_makefile),$(INTERNAL_PRODUCT))
 $(error PRODUCT_NAME inconsistent in $(current_product_makefile) and $(INTERNAL_PRODUCT))
 endif
 current_product_makefile :=
