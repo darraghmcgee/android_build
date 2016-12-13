@@ -2013,7 +2013,7 @@ ifneq ($(TARGET_CUSTOM_RELEASETOOL),)
 endif
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LD_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(LD_TARGET_PACKAGE) > $(LD_TARGET_PACKAGE).md5sum
-
+	@echo -e ${CL_RST}""
 	@echo -e ${CL_RST}""
 	@echo -e ${CL_RST}"             ██▓     ██▓  █████   █    ██  ██▓▓█████▄    ▓█████▄ ▓█████  ▄▄▄      ▄▄▄█████▓ ██░ ██     ▒█████    ██████     "
 	@echo -e ${CL_RST}"            ▓██▒    ▓██▒▒██▓  ██▒ ██  ▓██▒▓██▒▒██▀ ██▌   ▒██▀ ██▌▓█   ▀ ▒████▄    ▓  ██▒ ▓▒▓██░ ██▒   ▒██▒  ██▒▒██    ▒     "
@@ -2024,7 +2024,7 @@ endif
 	@echo -e ${CL_RST}"            ░ ░ ▒  ░ ▒ ░ ░ ▒░  ░ ░░▒░ ░ ░  ▒ ░ ░ ▒  ▒     ░ ▒  ▒  ░ ░  ░  ▒   ▒▒ ░    ░     ▒ ░▒░ ░     ░ ▒ ▒░ ░ ░▒  ░ ░    "
 	@echo -e ${CL_RST}"              ░ ░    ▒ ░   ░   ░  ░░░ ░ ░  ▒ ░ ░ ░  ░     ░ ░  ░    ░     ░   ▒     ░       ░  ░░ ░   ░ ░ ░ ▒  ░  ░  ░      "
 	@echo -e ${CL_RST}"                ░  ░ ░      ░       ░      ░     ░          ░       ░  ░      ░  ░          ░  ░  ░       ░ ░        ░      "
-	@echo -e ${CL_RST}"                                               ░          ░                                                                                                                                                        
+	@echo -e ${CL_RST}"                                               ░          ░                                                                 "
 	@echo -e ${CL_RST}""
 	@echo -e ${CL_RST}"                                     Build completed but be careful do not injest this build!!                              "
 	@echo -e ${CL_RST}""${CL_RST}
