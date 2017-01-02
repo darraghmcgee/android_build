@@ -2006,9 +2006,9 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 
 LD_TARGET_PACKAGE := $(PRODUCT_OUT)/$(LD_VERSION).zip
 
-.PHONY: otapackage bacon
+.PHONY: otapackage deathly
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
-bacon: otapackage
+deathly: otapackage
 ifneq ($(TARGET_CUSTOM_RELEASETOOL),)
 endif
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LD_TARGET_PACKAGE)

@@ -572,7 +572,7 @@ function brunch()
 {
     breakfast $*
     if [ $? -eq 0 ]; then
-        time mka bacon
+        time mka deathly
     else
         echo "Do you know what you're doing?"
         return 1
