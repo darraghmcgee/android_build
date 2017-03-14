@@ -223,7 +223,7 @@ def fetch_dependencies(repo_path):
 
     if len(syncable_repos) > 0:
         print 'Syncing dependencies'
-        os.system('repo sync %s' % ' '.join(syncable_repos))
+        os.system('repo sync --force-sync %s' % ' '.join(syncable_repos))
 
 if depsonly:
     repo_path = get_from_manifest(device)
