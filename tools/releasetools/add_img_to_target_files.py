@@ -19,31 +19,7 @@ Given a target-files zipfile that does not contain images (ie, does
 not have an IMAGES/ top-level subdirectory), produce the images and
 add them to the zipfile.
 
-Usage:  add_img_to_target_files [flag] target_files
-
-  -a  (--add_missing)
-      Build and add missing images to "IMAGES/". If this option is
-      not specified, this script will simply exit when "IMAGES/"
-      directory exists in the target file.
-
-  -r  (--rebuild_recovery)
-      Rebuild the recovery patch and write it to the system image. Only
-      meaningful when system image needs to be rebuilt.
-
-  --replace_verity_private_key
-      Replace the private key used for verity signing. (same as the option
-      in sign_target_files_apks)
-
-  --replace_verity_public_key
-       Replace the certificate (public key) used for verity verification. (same
-       as the option in sign_target_files_apks)
-
-  --is_signing
-      Skip building & adding the images for "userdata" and "cache" if we
-      are signing the target files.
-
-  --verity_signer_path
-      Specify the signer path to build verity metadata.
+Usage:  add_img_to_target_files target_files
 """
 
 import sys
@@ -408,6 +384,14 @@ def AddImagesToTargetFiles(filename):
       if recovery_image:
         recovery_image.AddToZip(output_zip)
 
+      banner("recovery (two-step image)")
+      # The special recovery.img for two-step package use.
+      recovery_two_step_image = common.GetBootableImage(
+          "IMAGES/recovery-two-step.img", "recovery-two-step.img",
+          OPTIONS.input_tmp, "RECOVERY", two_step_image=True)
+      if recovery_two_step_image:
+        recovery_two_step_image.AddToZip(output_zip)
+
   banner("system")
   system_imgname = AddSystem(output_zip, recovery_img=recovery_image,
                              boot_img=boot_image)
@@ -428,10 +412,8 @@ def AddImagesToTargetFiles(filename):
     banner("partition-table")
     AddPartitionTable(output_zip)
 
-  # For devices using A/B update, copy over images from RADIO/ and/or
-  # VENDOR_IMAGES/ to IMAGES/ and make sure we have all the needed
-  # images ready under IMAGES/. All images should have '.img' as extension.
-  banner("radio")
+  # For devices using A/B update, copy over images from RADIO/ to IMAGES/ and
+  # make sure we have all the needed images ready under IMAGES/.
   ab_partitions = os.path.join(OPTIONS.input_tmp, "META", "ab_partitions.txt")
   if os.path.exists(ab_partitions):
     with open(ab_partitions, 'r') as f:
